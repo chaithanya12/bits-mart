@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BITSmart | Books</title>
+  {%include '__headerfiles.html' %}
+</head>
+
+<body>
+{%include '__navbar.html'%}
+
+<div class="container">
+	<div class="col-xs-12 cell-out">
+		<div class="cell-in bordered-box ad-search">
+			<form method="POST" action="/books/search/">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="form-group">
+							<h3 style="margin-top:0;margin-right:20px">Search</h3>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="form-group">
+							<input type="text" class="form-control make-sharp" id="book_name" placeholder="Book's name" name="name">
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="form-group">
+							<select class="form-control make-sharp" id="book_subject" name="branch">
+								<option selected="true">Branch</option>
+								<option value="BIO" title="MSc. Biology" name="BIO">BIO</option>
+								<option value="PHY" title="MSc. Physics" name="PHY">PHY</option>
+								<option value="CS" 	title="Computer Science" name="CS">CS</option>
+								<option value="MATH" 	title="MATH" name="MATH">MATH</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="form-group">
+							<input required="true" type="text" class="form-control make-sharp" id="book_code" placeholder="Course Code" name="course_code">
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="form-group">
+							<input type="submit" class="form-control btn btn-primary btn-block make-flat make-sharp" id="ad_search"  value="Search Book">
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="col-xs-10 col-xs-offset-1" id="place-ads">
+	<!-- django goes here -->
+			{% if all_BookOffers %}
+			{% for x in all_BookOffers %}
+			<div class="row">
+				<div class="col-xs-12 cell-out">
+					<div class="cell-in bordered-box ad-info">
+						<div class="col-xs-6 col-xs-offset-1" class="ad-info-basic">
+							<p class="row">
+								<strong class="col-xs-2 text-center">
+									<span title="Name" class="fa fa-3x fa-book"></span>
+								</strong>
+								<span class="col-xs-10">
+									{{ x.name }}
+									<br>
+								</span>
+								<span title="Price" class="col-xs-10 fa fa-rupee"> 
+									{{x.price}}
+								</span>
+							</p>
+						</div>
+						<div class="col-xs-4" class="ad-info-contact">
+							<p class="row">
+								<strong class="col-xs-4 text-center">
+									<span title="E-mail" class="fa fa-2x fa-envelope-o"></span>
+								</strong>
+								<span>
+									{{x.user.username}}@pilani.bits-pilani.ac.in
+								</span>
+							</p>
+							{% if x.phone %}
+							<p class="row">
+								<strong class="col-xs-4 text-center">
+									<span title="Phone" class="fa fa-phone fa-2x"></span>
+								</strong>
+								<span>
+									{{x.phone}}
+								</span>
+							</p>
+							{%endif%}
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			{% endif %}
+	</div>
+</div>
+
+</body>
+</html>

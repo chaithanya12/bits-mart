@@ -1,0 +1,167 @@
+html,
+body{
+	height: 100%;
+}
+
+html,
+body,
+.container{
+	background-color: #eee;
+}
+
+
+.cell-out{
+	padding: 5px;
+}
+
+
+.cell-in{
+	background-color: #fff;
+}
+
+.bordered-box{
+	border: 1px solid #ddd;
+	border-bottom: 3px solid #ccc;
+	overflow: hidden;
+}
+
+.cell-in.ad-info{
+	padding: 20px;
+	padding-bottom: 0;
+}
+
+
+.cell-in.ad-search{
+	padding: 20px;
+	padding-bottom: 0;
+}
+
+
+.make-sharp{
+	border-radius: 0!important;
+}
+
+
+.make-flat{
+	background-image: none;
+}
+
+
+#user_email{
+	color: #aaa;
+	background: #eee;
+}
+
+
+#place-ad-well{
+	background-image: none!important;
+	box-shadow: none;
+	overflow: auto;
+	height: 80vh;
+}
+
+
+.ad-place-pick:hover{
+	cursor: pointer;
+	border-bottom-color: #1d364e;
+	background-color: #4d667e;
+	color: #fff;
+}
+.picked-ad{
+	border-bottom-color: #1d364e;
+	background-color: #4d667e;
+	color: #fff;
+}
+
+hr{
+	border-top: 2px solid #ccc;
+}
+
+.pick_ad_panel{
+	display: none;
+}
+
+
+#message{
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#message > div{
+	width: 60%;
+	position: relative;
+	display: table;
+	margin: auto;
+}
+
+
+
+.team_pic{
+	display: table;
+	margin: auto;
+	height: 120px;
+	width: 120px;
+	border-radius: 100%;
+	transition: border-bottom-right-radius 200ms;
+}
+.team_pic:hover{
+	border-bottom-right-radius: 0;
+}
+
+.homepage_ad{
+	cursor: pointer;
+}
+
+.homepage_ad:hover{
+	border-bottom-color: #558;
+	background-color: #4d667e;
+	color: #fff;
+}
+nav *{
+	color: white!important;
+}
+nav li{
+	padding: 4px 0;
+}
+nav li:hover{
+	background: rgba(0, 0, 0, 0.2);
+}
+@media screen and (max-width:768px){
+	nav *{
+		color: #333!important;
+	}
+}
+nav .container-fluid{
+	min-height: 65px!important;
+	box-shadow: 0 0px 5px #555;
+	background-color: #222!important;
+	background: linear-gradient(90deg,#ccc, #445)!important;
+}
+
+.homepage_ad a{
+	padding: 1px 0;
+	display: block;
+}
+
+.homepage_ad h1,
+.homepage_ad h2,
+.homepage_ad h4{
+	color: #3d566e!important;
+}
+
+
+.homepage_ad:hover h1,
+.homepage_ad:hover h2,
+.homepage_ad:hover h4{
+	color: #fff!important;
+}
+
+
+div.col-sm-5 > *:hover{
+	background: #4d667e;
+}
+
+a{
+	text-decoration: none!important;
+}

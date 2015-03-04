@@ -1,0 +1,68 @@
+<div class="col-xs-8 col-xs-offset-2 bordered-box cell-in">
+
+	<form style="padding-bottom:20px">
+		<div class="form-group" id="place-ad-well-heading">
+			<h3>Cab Pooling - Form</h3>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">
+					<select class="form-control" id="taxi_destination">
+						<option disabled="true" selected="true">Destination</option>
+						<option value="1">Jaipur</option>
+						<option value="2">Hisar</option>
+						<option value="3">Delhi</option>
+						<option value="4">Loharu</option>
+						<option value="5">Pilani</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">
+		      <div class='input-group' id="taxi_date_call">
+						<input required="true" type="text" class="form-control" id="taxi_date" placeholder="Date">
+		        <span class="input-group-addon" style="cursor:pointer"><span class="fa fa-calendar"></span>
+		        </span>
+		      </div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-6">
+				<div class="form-group">
+					<input required="true" type="number" max="8" min="1" class="form-control" id="taxi_seats" placeholder="Seats Available">
+				</div>
+			</div>
+
+			<div class="col-xs-6">
+				<div class="form-group">
+					<input required="true" type="phone" class="form-control" id="taxi_phone" placeholder="Phone (optional)">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<hr>
+				<p class="text-muted xtext-center">
+					<b>Note:</b> Your registered BITS email will be shown along the ad, for communication purposes. Providing your phone number is optional.
+				</p>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<input required="true" type="submit" class="form-control btn btn-primary btn-block make-flat make-sharp" id="ad_search"  value="Post Ad">
+		</div>
+	</form>
+</div>
+
+
+<!-- initiate date selector -->
+<script type="text/javascript">
+  $('#taxi_date_call').datetimepicker({format: "DD - MM - YY"});
+</script>

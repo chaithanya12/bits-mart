@@ -1,0 +1,69 @@
+<div class="col-xs-8 col-xs-offset-2 bordered-box cell-in">
+
+	<form style="padding-bottom:20px">
+		<div class="form-group" id="place-ad-well-heading">
+			<h3>Books - Form</h3>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">
+					<input required="true" type="text" class="form-control" id="book_name" placeholder="Book's name">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-6">
+				<div class="form-group">
+					<select class="form-control make-sharp" id="book_subject">
+						<option selected="true">Branch (optional)</option>
+						<option value="BIO" title="MSc. Biology">BIO</option>
+						<option value="PHY" title="MSc. Physics">PHY</option>
+						<option value="CS" 	title="Computer Science">CS</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="col-xs-6">
+				<div class="form-group">
+					<input required="true" type="text" class="form-control make-sharp" id="book_code"  placeholder="F1234 (optional)">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-6">
+				<div class="form-group">
+					<input required="true" type="number" class="form-control make-sharp" id="book_price"  step="1" min="0" placeholder="Price">
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<div class="form-group">
+					<input required="true" type="phone" class="form-control make-sharp" id="taxi_phone" placeholder="Phone (optional)">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<hr>
+				<p class="text-muted xtext-center">
+					<b>Note:</b> Your registered BITS email will be shown along the ad, for communication only.<br>
+					Providing your phone number is optional.<br>
+					<i>Branch</i> and <i>Code</i> are optional and are meant only for academic books.
+				</p>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<input required="true" type="submit" class="form-control btn btn-primary btn-block make-flat make-sharp" id="ad_search"  value="Post Ad">
+		</div>
+	</form>
+</div>
+
+
+<!-- initiate date selector -->
+<script type="text/javascript">
+  $('#book_date_call').datetimepicker({format: "DD - MM - YY"});
+</script>

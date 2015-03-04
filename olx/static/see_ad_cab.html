@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
+	<title></title>
+</head>
+<body>
+
+<style type="text/css">
+	*{
+		background-color: #f0f0f0!important;
+	}
+	.cell-out{
+		padding: 5px;
+	}
+	.cell-in,
+	.cell-in *:not(.btn-flat){
+		background-color: #fff!important;
+	}
+	.cell-in.ad-info{
+		border: 1px solid #ddd;
+		padding: 20px;
+		overflow: hidden;
+		border-bottom: 3px solid #ccc;
+	}
+	.cell-in.ad-search{
+		border: 1px solid #ddd;
+		padding: 20px;
+		/*overflow: hidden;*/
+		border-bottom: 3px solid #ccc;
+	}
+	.btn-flat{
+		background-image: none!important;
+		background-color: #337AB7!important;
+	}
+</style>
+
+<div class="container">
+
+	<div class="col-xs-12 cell-out">
+		<div class="cell-in ad-search">
+			<form class="form-inline">
+
+				<div class="form-group">
+					<h3 style="margin-top:0;margin-right:20px">Search</h3>
+				</div>
+
+				<div class="form-group">
+					<select type="text" class="form-control" id="taxi_name">
+						<option value="0">Destination</option>
+						<option value="1">Jaipur</option>
+						<option value="2">Hisar</option>
+						<option value="3">Delhi</option>
+						<option value="4">Loharu</option>
+						<option value="5">Pilani</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+          <div class='input-group' id="taxi_date_call">
+						<input required="true" type="text" class="form-control" id="taxi_date" placeholder="Date">
+            <span class="input-group-addon" style="cursor:pointer"><span class="fa fa-calendar"></span>
+            </span>
+          </div>
+				</div>
+
+				<div class="form-group">
+					<input required="true" type="submit" class="form-control btn btn-primary btn-block btn-flat" id="ad_search"  value="Search Taxi">
+				</div>
+			</form>
+		</div>
+		</div>
+
+	<div class="col-xs-3" id="place-filters">
+		<div class="row">
+			<div class="cell-out col-xs-12">
+				<div class="cell-in" style="padding:0 5px">
+					<h3 style="border-bottom: 2px dashed #f0f0f0;padding-left:20px">Refine</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-xs-8 col-xs-offset-1" id="place-ads">
+		<!-- html filled by JSON parsing -->
+	</div>
+</div>
+
+<!-- JSON object -->
+<script type="text/javascript">
+	var ad_cabs=[
+		{
+			destination:"Jaipur",
+			dateTime:"07 Jan '15",
+			seats:2,
+			contact:{
+				email:'1@2.3',
+				phone:'123465789'
+			}
+		},
+		{
+			destination:"Delhi",
+			dateTime:"17 Jan '15",
+			seats:4,
+			contact:{
+				email:'1@2.3',
+				phone:'-1'
+			}
+		},
+		{
+			destination:"Jaipur",
+			dateTime:"07 Jan '15",
+			seats:8,
+			contact:{
+				email:'1@2.3',
+				phone:'-1'
+			}
+		},
+		{
+			destination:"Jaipur",
+			dateTime:"07 Jan '15",
+			seats:4,
+			contact:{
+				email:'1@2.3',
+				phone:'-1'
+			}
+		}
+	];
+</script>
+
+<!-- JSON parsing -->
+<script type="text/javascript">
+	for(var i=0; i<ad_cabs.length; i++){
+		var destination=ad_cabs[i].destination;
+		var dateTime=ad_cabs[i].dateTime;
+		var seats=ad_cabs[i].seats;
+		var email=ad_cabs[i].contact.email;
+		var phoneInfo='';
+		if(ad_cabs[i].contact.phone !== '-1'){
+			phoneInfo=
+				'<p class="row">'+
+					'<strong class="col-xs-4 text-center">'+
+						'<span title="Phone" class="fa fa-phone fa-2x"></span>'+
+					'</strong>'+
+					'<span>'+
+						ad_cabs[i].contact.phone+
+					'</span>'+
+				'</p>';
+		};
+
+		document.querySelector('#place-ads').innerHTML+=
+			'<div class="row">'+
+				'<div class="col-xs-12 cell-out">'+
+					'<div class="cell-in ad-info">'+
+
+						// basic info for ad
+						'<div class="col-xs-8 flex" class="ad-info-basic">'+
+
+							'<p class="row">'+
+								'<strong class="col-xs-2 text-center">'+
+									'<span title="Destination" class="fa fa-2x fa-tint fa-rotate-180"></span>'+
+								'</strong>'+
+								'<span class="col-xs-10">'+
+									destination+
+								'</span>'+
+							'</p>'+
+							
+							'<p class="row">'+
+								'<strong class="col-xs-2 text-center">'+
+									'<span title="Date-Time" class="fa fa-2x fa-calendar"></span>'+
+								'</strong>'+
+								'<span class="col-xs-10">'+
+									dateTime+
+								'</span>'+
+							'</p>'+
+							
+							'<p class="row">'+
+								'<strong class="col-xs-2 text-center">'+
+									'<span title="Seats Available" class="fa fa-users fa-2x"></span>'+
+								'</strong>'+
+								'<span class="col-xs-10">'+
+									seats+
+								'</span>'+
+							'</p>'+
+						'</div>'+
+
+						// contact info for ad
+						'<div class="col-xs-4 flex" class="ad-info-contact">'+
+
+							'<p class="row">'+
+								'<strong class="col-xs-4 text-center">'+
+									'<span title="E-mail" class="fa fa-2x fa-envelope-o"></span>'+
+								'</strong>'+
+								'<span>'+
+									email+
+								'</span>'+
+							'</p>'+
+							
+							phoneInfo
+
+							// '<p class="row">'+
+							// 	'<strong class="col-xs-2 text-center">'+
+							// 		'<span title="Phone" class="fa fa-phone fa-2x"></span>'+
+							// 	'</strong>'+
+							// 	'<span>'+
+							// 		phone+
+							// 	'</span>'+
+							// '</p>'+
+						'</div>'+
+
+					'</div>'+
+				'</div>'+
+			'</div>';
+	}
+</script>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/moment.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+
+<!-- initiate date selector -->
+<script type="text/javascript">
+  $('#taxi_date_call').datetimepicker({format: "DD - MM - YY"});
+</script>
+
+
+</body>
+</html>
+
+<!-- 
+fa-rupee
+fa-phone
+fa-envelope-o
+fa-tint
+ -->

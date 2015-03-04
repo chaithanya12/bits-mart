@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BITSmart | cab</title>
+  {%include '__headerfiles.html' %}
+</head>
+
+<body>
+{%include '__navbar.html'%}
+
+<div class="container">
+	<div class="col-xs-12 cell-out">
+		<div class="cell-in ad-search bordered-box" style="overflow:visible">
+			<form method="POST" action="/cabs/search/">
+				<div class="row">
+					<div class="form-group col-sm-2">
+						<div class="form-group text-center">
+							<h3 style="margin-top:0;margin-right:20px">Search</h3>
+						</div>
+					</div>
+					<div class="form-group col-sm-4">
+						<select type="text" class="make-sharp form-control" id="taxi_name" name="destination">
+							<option value="">Destination</option>
+							<option value="Jaipur">Jaipur</option>
+							<option value="Hisar">Hisar</option>
+							<option value="Delhi">Delhi</option>
+							<option value="Loharu">Loharu</option>
+							<option value="Pilani">Pilani</option>
+						</select>
+					</div>
+					<div class="form-group col-sm-3">
+	          <div class='input-group' id="taxi_date_call">
+							<input type="text" class="make-sharp form-control" id="taxi_date" placeholder="Date" name="date_of_travel">
+	            <span class="input-group-addon" style="cursor:pointer"><span class="fa fa-calendar"></span>
+	            </span>
+	          </div>
+					</div>
+					<div class="form-group col-sm-3">
+						<input type="submit" class="make-sharp make-flat form-control btn btn-primary btn-block btn-flat" id="ad_search"  value="Search Taxi">
+					</div>
+				</div>
+			</form>
+		</div>
+		</div>
+
+	<div class="col-xs-10 col-xs-offset-1" id="place-ads">
+	{% for x in all_CabOffers %}
+		<div class="row">
+			<div class="col-xs-12 cell-out">
+				<div class="cell-in ad-info bordered-box">
+					<div class="col-xs-6" class="ad-info-basic">
+						<p class="row">
+							<strong class="col-xs-2 text-center">
+								<span title="Destination" class="fa fa-2x fa-tint fa-rotate-180"></span>
+							</strong>
+							<span class="col-xs-10">
+								{{ x.destination }}
+							</span>
+						</p>
+						<p class="row">
+							<strong class="col-xs-2 text-center">
+								<span title="Date-Time" class="fa fa-2x fa-calendar"></span>
+							</strong>
+							<span class="col-xs-10">
+								{{ x.date_of_travel }}
+							</span>
+						</p>
+						{% if x.seats %}
+						<p class="row">
+							<strong class="col-xs-2 text-center">
+								<span title="Seats Available" class="fa fa-users fa-2x"></span>
+							</strong>
+							<span class="col-xs-10">
+								{{ x.seats }}
+							</span>
+						</p>
+						{% endif %}
+					</div>
+					<div class="col-xs-4 flex" class="ad-info-contact">
+						<p class="row">
+							<strong class="col-xs-4 text-center">
+								<span title="E-mail" class="fa fa-2x fa-envelope-o"></span>
+							</strong>
+							<span>
+								{{x.user.username}}@pilani.bits-pilani.ac.in
+							</span>
+						</p>
+						{% if x.phone %}
+						 <p class="row">
+						 	<strong class="col-xs-4 text-center">
+						 		<span title="Phone" class="fa fa-phone fa-2x"></span>
+						 	</strong>
+						 	<span>
+						 		{{ x.phone }}
+							</span>
+						</p>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+	</div>
+</div>
+
+<!-- initiate date selector -->
+<script type="text/javascript">
+  $('#taxi_date_call').datetimepicker({format: "DD - MM - YY"});
+</script>
+
+</body>
+</html>

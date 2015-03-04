@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<title></title>
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="fa fa-support"></span> About</a></li>
+        <li><a href="#"><span class="fa fa-user"></span> Account</a></li>
+        <li><a href="#"><span class="fa fa-sign-out"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+<div class="container">
+
+	<div class="col-xs-12 cell-out">
+		<div class="cell-in bordered-box ad-search">
+			<form>
+
+				<div class="row">
+					<div class="col-xs-2">
+						<div class="form-group">
+							<h3 style="margin-top:0;margin-right:20px">Search</h3>
+						</div>
+					</div>
+
+					<div class="col-xs-2">
+						<div class="form-group">
+							<input required="true" type="text" class="form-control make-sharp" id="book_name" placeholder="Book's name">
+						</div>
+					</div>
+
+					<div class="col-xs-2">
+						<div class="form-group">
+							<select class="form-control make-sharp" id="book_subject">
+								<option selected="true">Branch</option>
+								<option value="BIO" title="MSc. Biology">BIO</option>
+								<option value="PHY" title="MSc. Physics">PHY</option>
+								<option value="CS" 	title="Computer Science">CS</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="col-xs-2">
+						<div class="form-group">
+							<input required="true" type="text" class="form-control make-sharp" id="book_code"  placeholder="F1234">
+						</div>
+					</div>
+
+					<div class="col-xs-2">
+						<div class="form-group col-md-offset-1">
+							<input required="true" type="text" class="form-control make-sharp" id="book_price"  placeholder="Price">
+						</div>
+					</div>
+
+					<div class="col-xs-2">
+						<div class="form-group">
+							<input required="true" type="submit" class="form-control btn btn-primary btn-block make-flat make-sharp" id="ad_search"  value="Search Book">
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="col-xs-10 col-xs-offset-1" id="place-ads">
+		<!-- html filled by JSON parsing -->
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- JSON object -->
+<script type="text/javascript">
+	var ad_books=[
+		{
+			name:"Name of Book. Author. Version.",
+			age:"second hand",
+			price:400.25,
+			bookId:'BITS F123',
+			contact:{
+				email:'1@2.3',
+				phone:'123465789'
+			}
+		},
+		{
+			name:"Name of Book. Author. Version.",
+			age:"second hand",
+			price:400.25,
+			bookId:'BITS F123',
+			contact:{
+				email:'1@2.3',
+				phone:'-1'
+			}
+		},
+		{
+			name:"Name of Book. Author. Version.",
+			age:"second hand",
+			price:400.25,
+			bookId:'BITS F123',
+			contact:{
+				email:'1@2.3',
+				phone:'-1'
+			}
+		},
+		{
+			name:"Name of Book. Author. Version.",
+			age:"second hand",
+			price:400.25,
+			bookId:'BITS F123',
+			contact:{
+				email:'1@2.3',
+				phone:'-1'
+			}
+		}
+	];
+</script>
+
+<!-- JSON parsing -->
+<script type="text/javascript">
+	for(var i=0; i<ad_books.length; i++){
+		var name 			=	ad_books[i].name;
+		var age				=	ad_books[i].age;
+		var price			=	ad_books[i].price;
+		var bookId		=	ad_books[i].bookId;
+		var email 		=	ad_books[i].contact.email;
+		var phoneInfo	='';
+
+		if(ad_books[i].contact.phone !== '-1'){
+			phoneInfo=
+				'<p class="row">'+
+					'<strong class="col-xs-4 text-center">'+
+						'<span title="Phone" class="fa fa-phone fa-2x"></span>'+
+					'</strong>'+
+					'<span>'+
+						ad_books[i].contact.phone+
+					'</span>'+
+				'</p>';
+		};
+
+
+		document.querySelector('#place-ads').innerHTML+=
+			'<div class="row">'+
+				'<div class="col-xs-12 cell-out">'+
+					'<div class="cell-in bordered-box ad-info">'+
+
+						// basic info for ad
+						'<div class="col-xs-8" class="ad-info-basic">'+
+
+							'<p class="row">'+
+								'<strong class="col-xs-2 text-center">'+
+									'<span title="Name" class="fa fa-3x fa-book"></span>'+
+								'</strong>'+
+								'<span class="col-xs-10">'+
+									name+
+									'<br><span class="text-muted">'+
+										age+
+									'</span>'+
+								'</span>'+
+								'<span title="Price" class="col-xs-10 fa fa-rupee"> '+
+									price+
+								'</span>'+
+							'</p>'+
+						'</div>'+
+
+						// contact info for ad
+						'<div class="col-xs-4" class="ad-info-contact">'+
+
+							'<p class="row">'+
+								'<strong class="col-xs-4 text-center">'+
+									'<span title="E-mail" class="fa fa-2x fa-envelope-o"></span>'+
+								'</strong>'+
+								'<span>'+
+									email+
+								'</span>'+
+							'</p>'+
+							
+							phoneInfo
+
+							// '<p class="row">'+
+							// 	'<strong class="col-xs-2 text-center">'+
+							// 		'<span title="Phone" class="fa fa-phone fa-2x"></span>'+
+							// 	'</strong>'+
+							// 	'<span>'+
+							// 		phone+
+							// 	'</span>'+
+							// '</p>'+
+						'</div>'+
+
+					'</div>'+
+				'</div>'+
+			'</div>';
+	}
+</script>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/moment.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+
+</body>
+</html>
+
+<!-- 
+fa-rupee
+fa-phone
+fa-envelope-o
+fa-book

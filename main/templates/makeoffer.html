@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BITSmart | Post Ad</title>
+  {%include '__headerfiles.html' %}
+</head>
+
+<body>
+{%include '__navbar.html'%}
+
+<div class="container">
+	<div class="col-md-10 col-md-offset-1 well make-sharp" id="place-ad-well">
+
+    <div class="col-xs-3 cell-out">
+      <div data-span-id="1" class="cell-in ad-place-pick bordered-box" style="white-space: nowrap; padding:0">
+        <h4 style="display:block" data-span-id="1" class="text-center">Cab Pooling</h4>
+      </div>
+    </div>
+
+    <div class="col-xs-3 cell-out">
+      <div data-span-id="2" class="cell-in ad-place-pick bordered-box" style="white-space: nowrap; padding:0">
+        <h4 style="display:block" data-span-id="2"  class="text-center">Books</h4>
+      </div>
+    </div>
+
+    <div class="col-xs-3 cell-out">
+      <div data-span-id="3" class="cell-in ad-place-pick bordered-box" style="white-space: nowrap; padding:0">
+        <h4 style="display:block" data-span-id="3"  class="text-center">Electronics</h4>
+      </div>
+    </div>
+
+    <div class="col-xs-3 cell-out">
+      <div data-span-id="4" class="cell-in ad-place-pick bordered-box" style="white-space: nowrap; padding:0">
+        <h4 style="display:block" data-span-id="4"  class="text-center">Trunks</h4>
+      </div>
+    </div>
+
+    <span id="ad_panel_0">
+      <h1 class="text-muted text-center" style="font-weight:bold;padding-top:80px">SELECT A TAB TO PLACE AN AD</h1>
+    </span>
+
+    <!-- span for: cab-pooling -->
+		<span class="pick_ad_panel" id="ad_panel_1">
+      <div class="col-xs-8 col-xs-offset-2 bordered-box cell-in">
+
+        <form style="padding-bottom:20px" method="POST" action="/cabs/makeoffer/">
+          <div class="form-group" id="place-ad-well-heading">
+            <h3>Cab Pooling - Form</h3>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <select class="form-control make-sharp" id="taxi_destination" name="destination">
+                  <option disabled="true" selected="true">Destination</option>
+                  <option value="Jaipur">Jaipur</option>
+                  <option value="Hisar">Hisar</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Loharu">Loharu</option>
+                  <option value="Pilani">Pilani</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <div class='input-group' id="taxi_date_call">
+                  <input required="true" type="text" class="form-control make-sharp" id="taxi_date" placeholder="Date" name="date_of_travel">
+                  <span class="input-group-addon" style="cursor:pointer"><span class="fa fa-calendar"></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group">
+                <div class='input-group' id="taxi_time_call">
+                  <input required="true" type="text" class="form-control make-sharp" id="taxi_time" placeholder="Time" name="time_of_travel">
+                  <span class="input-group-addon" style="cursor:pointer"><span class="fa fa-clock-o"></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <input required="true" type="number" max="8" min="1" class="form-control make-sharp" id="taxi_seats" placeholder="Seats Available" name="seats">
+              </div>
+            </div>
+
+            <div class="col-xs-6">
+              <div class="form-group">
+                <input type="phone" class="form-control make-sharp" id="taxi_phone" placeholder="Phone (optional)" name="phone">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <hr>
+              <p class="text-muted xtext-center">
+                <b>Note:</b> Your registered BITS email will be shown along the ad, for communication purposes. Providing your phone number is optional.
+              </p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input required="true" type="submit" class="form-control btn btn-primary btn-block make-flat make-sharp"  value="Post Ad">
+          </div>
+        </form>
+      </div>
+
+
+      <!-- initiate date selector -->
+      <script type="text/javascript">
+        $('#taxi_date_call').datetimepicker({format: "DD - MM - YY"});
+        $('#taxi_time_call').datetimepicker({format: "HH - mm"});
+      </script>
+    </span>
+
+    <!-- span for: books -->
+    <span class="pick_ad_panel" id="ad_panel_2">
+      <div class="col-xs-8 col-xs-offset-2 bordered-box cell-in">
+
+        <form style="padding-bottom:20px" method="POST" action="/books/makeoffer/">
+          <div class="form-group" id="place-ad-well-heading">
+            <h3>Books - Form</h3>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <input required="true" type="text" class="form-control make-sharp" id="book_name" placeholder="Book's name" name="name">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <select class="form-control make-sharp" id="book_subject" name="branch">
+                  <option selected="true">Branch (optional)</option>
+                  <option value="BIO" title="MSc. Biology">BIO</option>
+                  <option value="PHY" title="MSc. Physics">PHY</option>
+                  <option value="CS"  title="Computer Science">CS</option>
+                  <option value="MATH"  title="Mathematics">MATH</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xs-6">
+              <div class="form-group">
+                <input required="true" type="text" class="form-control make-sharp" id="book_code" placeholder="Course Code" name="course_code">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <input required="true" type="number" class="form-control make-sharp" id="book_price"  step="1" min="0" placeholder="Price" name="price">
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group">
+                <input type="phone" class="form-control make-sharp" id="taxi_phone" placeholder="Phone (optional)" name="phone">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <hr>
+              <p class="text-muted xtext-center">
+                <b>Note:</b> Your registered BITS email will be shown along the ad, for communication only.<br>
+                Providing your phone number is optional.<br>
+                <i>Branch</i> and <i>Code</i> are optional and are meant only for academic books.
+              </p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input required="true" type="submit" class="form-control btn btn-primary btn-block make-flat make-sharp" id="ad_search"  value="Post Ad">
+          </div>
+        </form>
+      </div>
+    </span>
+
+    <!-- span for: electronics -->
+    <span class="pick_ad_panel" id="ad_panel_3">
+      <div class="col-xs-8 col-xs-offset-2 bordered-box cell-in">
+
+        <form style="padding-bottom:20px" method="POST" action="/main/makeoffere/" enctype="multipart/form-data">
+          <div class="form-group" id="place-ad-well-heading">
+            <h3>Electronics - Form</h3>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <input required="true" type="text" class="form-control make-sharp" id="elec_name" placeholder="Item's name" name="name">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <textarea class="form-control make-sharp" id="elec_desc" placeholder="Description" style="resize:vertical;min-height:80px" name="description"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <input required="true" type="number" class="form-control make-sharp" id="elec_price"  step="1" min="0" placeholder="Price" name="price">
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group">
+                <input type="phone" class="form-control make-sharp" id="taxi_phone" placeholder="Phone (optional)" name="phone">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <div class='input-group'>
+                  <a href="javascript:void(0)" class="btn btn-default btn-block make-flat make-sharp" id="elec_pic_fake">Upload Picture</a>
+                  <input required="true" type="file" style="display:none" id="elec_pic" name="img">
+                  <script type="text/javascript">
+                    $('#elec_pic_fake').click(function(){
+                      $('#elec_pic').click();
+                    });
+                  </script>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <hr>
+              <p class="text-muted xtext-center">
+                <b>Note:</b> Your registered BITS email will be shown along the ad, for communication only.<br>
+                Providing your phone number is optional.<br>
+              </p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input required="true" type="submit" class="form-control btn btn-primary btn-block make-flat make-sharp"  value="Post Ad">
+          </div>
+        </form>
+      </div>
+
+      <!-- initiate date selector -->
+      <script type="text/javascript">
+        $('#elec_date_call').datetimepicker({format: "DD - MM - YY"});
+      </script>
+    </span>
+
+    <!-- span for: trunks -->
+    <span class="pick_ad_panel" id="ad_panel_4">
+      <div class="col-xs-8 col-xs-offset-2 bordered-box cell-in">
+
+        <form style="padding-bottom:20px" method="POST" action="/main/makeoffert/" enctype="multipart/form-data">
+          <input required="true" type="hidden" id="trunk_name" name="name" value="Trunk">
+          <div class="form-group" id="place-ad-well-heading">
+            <h3>Trunks - Form</h3>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <textarea class="form-control make-sharp" id="trunk_desc" placeholder="Description" style="resize:vertical;min-height:80px" name="description"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <input required="true" type="number" class="form-control make-sharp" id="trunk_price"  step="1" min="0" placeholder="Price" name="price">
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group">
+                <input type="phone" class="form-control make-sharp" id="trunk_phone" placeholder="Phone (optional)" name="phone">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <div class='input-group'>
+                  <a href="javascript:void(0)" class="btn btn-default btn-block make-flat make-sharp" id="trunk_pic_fake">Upload Picture</a>
+                  <input required="true" type="file" style="display:none" id="trunk_pic" name="img">
+                  <script type="text/javascript">
+                    $('#trunk_pic_fake').click(function(){
+                      $('#trunk_pic').click();
+                    });
+                  </script>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <hr>
+              <p class="text-muted xtext-center">
+                <b>Note:</b> Your registered BITS email will be shown along the ad, for communication only.<br>
+                Providing your phone number is optional.<br>
+              </p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input required="true" type="submit" class="form-control btn btn-primary btn-block make-flat make-sharp" id="ad_search"  value="Post Ad">
+          </div>
+        </form>
+      </div>
+
+      <!-- initiate date selector -->
+      <script type="text/javascript">
+        $('#elec_date_call').datetimepicker({format: "DD - MM - YY"});
+      </script>
+    </span>
+
+  </div>
+</div>
+
+{% if message %}
+<div id="message">
+  <div class="alert alert-success alert-dismissable">
+    {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  </div>
+</div>
+{% endif %}
+
+
+<!-- initiate date selector -->
+<script type="text/javascript">
+  $('#book_date_call').datetimepicker({format: "DD - MM - YY"});
+</script>
+
+<script type="text/javascript">
+  function  toggleActive(event){
+    var spanId=event.target.dataset.spanId;
+    var currentlyActive=document.querySelector('.picked-ad');
+
+    if(currentlyActive){
+      currentlyActive.classList.remove('picked-ad');
+    }
+
+    event.currentTarget.classList.add('picked-ad');
+    $('.pick_ad_panel').css('display','none');
+    $('#ad_panel_'+spanId).css('display','block');
+  }
+
+  $('.ad-place-pick').click(function(event){
+    toggleActive(event);
+    $('#ad_panel_0').css('display','none');
+  });
+</script>
+
+</body>
+</html>

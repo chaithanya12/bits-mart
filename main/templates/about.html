@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BITSmart | About</title>
+  {%include '__headerfiles.html' %}
+</head>
+
+<body>
+{%include '__navbar.html'%}
+
+<div class="container">
+  {% if not user.is_authenticated %}
+  <div class="cell-out col-sm-10 col-sm-offset-1">
+    <div class="cell-in bordered-box text-center">
+      <h1><img src="/static/img/bitsmart_half.png"></h1>
+      <h3><a href="/login/google-oauth2/" class="btn btn-default make-flat make-sharp">Please Login with your BITS mail to continue</a></h3>
+    </div>
+  </div>
+  {% endif %}
+  <div class="cell-out col-xs-10 col-xs-offset-1">
+    <div class="cell-in bordered-box">
+    <div class="col-xs-12" style="padding:0 50px">
+      <h1 class="text-center">Disclaimer</h1>
+      <h4 style="line-height:150%;margin-bottom:25px">BITS-Mart is our initiative to connect the buyers of varied products to the seller, in an efficient manner.</h4>
+      <h4 style="line-height:150%;margin-bottom:25px">Sole puspose of BITS-Mart is to provide a common platform to connect BITSians. BITS-Mart takes no responsibility of the delivery of goods. The mean/mode of commodity exchange is to be decided jointly by the buyer and the seller.</h4>
+      <h4 style="line-height:150%;margin-bottom:25px">BITS-Mart disclaims all express and implied warranties with regard to the content, information, services, and materials contained on this system, including without limitation any implied warranties of merchantability, fitness for a particular purpose, and non-infringement. All such information, services, and materials are provided "as is" and "as available" without any warranty of any kind.</h4>
+      <h4 style="line-height:150%;margin-bottom:25px">We hold no responsibility for the nature and the quality of the product listed, whatsoever. The user is responsible for the nature, type or quality of commodity that he/she is listing. </h4>
+      <h4 style="line-height:150%;margin-bottom:25px">In case of any discrepancy, BITS-Mart or the institute BITS Pilani are not to be held responsible, in any case. </h4>
+    </div>
+    </div>
+  </div>
+
+  <div class="col-xs-10 col-xs-offset-1 cell-out">
+    <div class="cell-in bordered-box">
+
+      <!-- team: heading -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h1 class="text-center">Meet the Team</h1>
+        </div>
+      </div>
+
+      <!-- team: 1st member -->
+      <div class="row">
+        <div class="col-xs-3 col-xs-offset-3">
+          <h1>
+            <img src="/static/img/modi.jpg" class="/static/img-responsive img-thumbnail">
+          </h1>
+        </div>
+
+        <div class="col-xs-5 col-xs-offset-1x">
+          <h2>Kshitij Modi</h2>
+          <p><span class="fa fa-phone"></span> +91 89479 63930</p>
+          <p><span class="fa fa-envelope-o"></span> his.email@some.com</p>
+          <p><a href="https://www.facebook.com/kshitij.modi.58"><span class="fa fa-facebook-official"></span> Kshitij Modi</a></p>
+        </div>
+
+        <div class="col-xs-4 col-xs-offset-4">
+          <hr>
+        </div>
+      </div>
+
+      <!-- team: 2nd & 3rd member -->
+      <div class="row">
+        <div class="col-xs-4 col-xs-offset-2">
+          <div class="col-xs-4 xcol-xs-offset-2">
+            <h4>
+              <img src="/static/img/arjun.jpg" class="/static/img-responsive img-thumbnail">
+            </h4>
+          </div>
+          <div class="col-xs-8 xcol-xs-offset-1x">
+            <h4>Arjun Moolrajani</h4>
+            <p><span class="fa fa-phone"></span> +91 99505 25000</p>
+            <p><a href="https://www.facebook.com/arjun.moolrajani"><span class="fa fa-facebook-official"></span> Arjun Moolrajani</a></p>
+          </div>
+        </div>
+
+        <div class="col-xs-4">
+          <div class="col-xs-4 xcol-xs-offset-2">
+            <h4>
+              <img src="/static/img/rishabh.jpg" class="/static/img-responsive img-thumbnail">
+            </h4>
+          </div>
+          <div class="col-xs-8 xcol-xs-offset-1x">
+            <h4>Rishabh Jain</h4>
+            <p><span class="fa fa-phone"></span> +91 97998 23983</p>
+            <p><a href="https://www.facebook.com/007rishabhjain"><span class="fa fa-facebook-official"></span> Rishabh Jain</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
